@@ -1,6 +1,7 @@
 [bits 32]
 
 global pmode
+extern kmain
 
 pmode:
     mov ax, 0x10  ; Data in GDT: 0x10
@@ -14,19 +15,13 @@ pmode:
     ; PIC remap
     call pic_remap
 
-    ; Print
-    mov esi, msg_welcome
-    mov ah, 0x0F
-    call print_str_32
-
     ; Init IDT
     lidt [idt_descriptor]
-    sti
 
-    ; Load kernel
+    ; Stack alignment
     and esp, 0xFFFFFFF0
 
-    extern kmain
+    ; Load kernel
     call kmain
 
 
@@ -40,5 +35,4 @@ pmode:
 
 %include "protected_mode/idt/idt_msg.asm"
 
-msg_welcome:      db "Protected mode activated!", 10, 0
 msg_kernel_panic: db "KERNEL PANIC!", 10, 0
