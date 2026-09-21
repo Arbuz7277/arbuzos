@@ -1,7 +1,7 @@
 // kernel.cpp
 
 #include <stdint.h>
-#include "putc.hpp"
+#include "print.hpp"
 #include "idt.hpp"
 
 extern "C" void kmain();

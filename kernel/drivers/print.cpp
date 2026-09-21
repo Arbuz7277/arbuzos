@@ -1,7 +1,7 @@
 // drivers/print.cpp
 
 #include <stdint.h>
-#include "putc.hpp"
+#include "print.hpp"
 
 void io::putc(uint8_t ch, uint8_t color) {
     if (col >= 80) {

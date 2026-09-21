@@ -7,7 +7,7 @@ TARGET  := arbuzos.img
 BUILD   := build
 
 # Список объектных файлов для линковки
-OBJS    := $(BUILD)/pmode.o $(BUILD)/kernel.o $(BUILD)/putc.o $(BUILD)/idt.o $(BUILD)/idt_handlers.o
+OBJS    := $(BUILD)/pmode.o $(BUILD)/kernel.o $(BUILD)/print.o $(BUILD)/idt.o $(BUILD)/idt_handlers.o
 
 all: $(TARGET)
 
@@ -43,7 +43,7 @@ $(BUILD)/idt_handlers.o: kernel/idt/idt.asm | $(BUILD)
 $(BUILD)/kernel.o: kernel/kernel.cpp | $(BUILD)
 	$(CXX) $(CFLAGS) $< -o $@
 
-$(BUILD)/putc.o: kernel/drivers/putc.cpp kernel/include/putc.hpp | $(BUILD)
+$(BUILD)/print.o: kernel/drivers/print.cpp kernel/include/print.hpp | $(BUILD)
 	$(CXX) $(CFLAGS) $< -o $@
 
 $(BUILD)/idt.o: kernel/idt/idt.cpp kernel/include/idt.hpp | $(BUILD)
