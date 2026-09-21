@@ -1,5 +1,6 @@
 [bits 32]
 
+global pic_remap
 pic_remap:
     mov al, 0x11
     out 0x20, al

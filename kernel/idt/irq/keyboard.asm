@@ -1,5 +1,6 @@
 [bits 32]
 
+global irq1
 irq1:
     pushad
     
