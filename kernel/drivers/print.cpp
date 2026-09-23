@@ -51,7 +51,7 @@ void io::print(const char* text, uint8_t color) {
 }
 
 void io::print(uint32_t number, uint8_t color) {
-    const char* digits = "0123456789ABCdEF";
+    const char* digits = "0123456789ABCDEF";
     char out[9];
 
     for (int i = 7; i >= 0; i--) {
