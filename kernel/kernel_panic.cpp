@@ -14,7 +14,7 @@ extern "C" void kernel_panic(const char* text, Registers* regs) {
     io::print("  EIP: "); io::print(regs->eip); io::print(", CS: "); io::print(regs->cs);
     io::print(", EFLAGS: "); io::print(regs->eflags); io::print("\n");
     
-    io::print("  EAX: "); io::print(regs->eax); io::print(", EBX: "); io::print(regs->eax);
+    io::print("  EAX: "); io::print(regs->eax); io::print(", EBX: "); io::print(regs->ebx);
     io::print(", ECX: "); io::print(regs->ecx); io::print(", EDX: "); io::print(regs->edx);
     io::print("\n");
  
