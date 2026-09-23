@@ -17,7 +17,7 @@ $(BUILD):
 
 # 1. Линковка всех объектных файлов в ELF
 $(BUILD)/kernel.elf: $(OBJS) link.ld | $(BUILD)
-	ld -m elf_i386 -T link.ld -o $@ $(OBJS)
+	ld -m elf_i386 -T link.ld -Map=kernel.map -o $@ $(OBJS)
 
 # 2. Превращение ELF в плоский бинарник
 $(BUILD)/kernel.bin: $(BUILD)/kernel.elf
