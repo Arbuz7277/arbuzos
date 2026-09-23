@@ -11,6 +11,7 @@ static volatile uint32_t col = 0;
 void putc(uint8_t ch, uint8_t color);
 void scroll();
 void print(const char* text, uint8_t color = 0x0F);
+void print(uint32_t number, uint8_t color = 0x0F);
 
 }
 

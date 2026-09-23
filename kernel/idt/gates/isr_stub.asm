@@ -2,5 +2,8 @@
 
 global isr_stub
 isr_stub:
-    mov esi, msg_stub
+    pushad
+
+    push esp        ; Registers* regs
+    push msg_stub   ; const char* text
     call kernel_panic

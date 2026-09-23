@@ -50,3 +50,15 @@ void io::print(const char* text, uint8_t color) {
     }
 }
 
+void io::print(uint32_t number, uint8_t color) {
+    const char* digits = "0123456789ABCdEF";
+    char out[9];
+
+    for (int i = 7; i >= 0; i--) {
+        out[i] = digits[number & 0xF];
+        number >>= 4;
+    }
+    out[8] = '\0';
+
+    io::print(&out[0], color);
+}

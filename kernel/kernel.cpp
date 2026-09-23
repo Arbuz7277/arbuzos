@@ -20,5 +20,6 @@ void kmain() {
 
     io::print("Hello from C++ kernel!\n");
     io::print("It's a v1");
+
     hang();
 }
