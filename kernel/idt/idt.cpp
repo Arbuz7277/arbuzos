@@ -6,8 +6,6 @@ extern "C" {
     void double_fault();
     void irq0();
     void irq1();
-
-    void pic_remap();
 }
 
 #include <stdint.h>
@@ -52,9 +50,6 @@ void IDT::init() {
 
     // Load IDT
     __asm__ volatile("lidt %0" : : "m"(pointer));
-
-    // PIC remap
-    pic_remap();
 }
 
 }

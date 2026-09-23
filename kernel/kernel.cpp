@@ -4,7 +4,10 @@
 #include "print.hpp"
 #include "idt.hpp"
 
-extern "C" void kmain();
+extern "C" {
+    void kmain();
+    void pic_remap();
+}
 
 void hang() {
     while (1) {
@@ -15,6 +18,7 @@ void hang() {
 
 void kmain() {
     io::IDT::init();
+    pic_remap();
 
     __asm__ volatile("sti");
 
